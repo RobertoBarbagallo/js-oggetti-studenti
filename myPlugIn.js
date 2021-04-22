@@ -29,7 +29,7 @@ singleObjPrint(objStudent)
 
 
 
-//creo un Array di oggetti "studente" iniziale
+//creo un Array di oggetti "studente" iniziale - NO FUNZIONE -
 var classe = []
 
 function inArrayPush(ele1, ele2, ele3, arrayToPush) {
@@ -64,40 +64,42 @@ function arrayWithObjectsPrint(myArray) {
 arrayWithObjectsPrint(classe)
 
 
-//eseguo una volta un prompt che memorizza i valori inseriti in un nuovo oggetto "studente" e lo inserisce nell'Array "classe"
-var propietaDaInserire = ["Inserisci il nome", "Inserisci il cognome", "Inserisci l'età"]
+//eseguo n volte prompt che memorizza i valori inseriti in un nuovo oggetto  e lo inserisce nell'Array "classe"
 
-function newObjectInArrayPrompt(arrayToPush, objModel, questionsForPrompt) {
-    var question
-    var objKeys = []
-    var newObject = {}
+function newObjectInArrayPrompt(arrayToPush, timesToRepeat) {
+        var objKeys = []
+        var lastItemIndexPlusOne = arrayToPush.length
 
-    for (var key in objModel) {
-        objKeys.push(key)
-    }
+    //Ricavo le chiavi del primo oggetto e le salvo in un  Array
+        var oggetto = arrayToPush[0]
+        for (var key in oggetto) {
+            objKeys.push(key)
+        }    
 
-    arrayToPush.push(newObject)
+    //Eseguo il ciclo n numero di volte e salvo i dati nell'Array di partenza
+        for (var z = 0; z < timesToRepeat; z++) {
+            var newObject = {}
+            arrayToPush.push(newObject)
+            for (var j = 0; j < objKeys.length; j++) {
+                var recivedValue = prompt("INSERISCI " + objKeys[j])
 
-    for (var j = 0; j < objKeys.length; j++) {
-        question = questionsForPrompt[j]
+                var valueInNumber = parseInt(recivedValue)
 
-        var recivedValue = prompt(question)
-
-        var valueInNumber = parseInt(recivedValue)
-
-        if (Number.isNaN(valueInNumber)){
-            newObject[objKeys[j]] = recivedValue
-
-        }else{
-            newObject[objKeys[j]] = valueInNumber
+                if(Number.isNaN(valueInNumber)){
+                    arrayToPush[z + lastItemIndexPlusOne][objKeys[j]] = recivedValue
+                }else{
+                    arrayToPush[z + lastItemIndexPlusOne][objKeys[j]] = valueInNumber
+                }
+                     
+            }
+        
         }
-       
-    }
-    return
+ 
+    return arrayToPush
 }
 
-newObjectInArrayPrompt(classe, objStudent, propietaDaInserire)
 
+newObjectInArrayPrompt(classe, 2)
 console.log(classe)
 
-arrayWithObjectsPrint(classe)
+
