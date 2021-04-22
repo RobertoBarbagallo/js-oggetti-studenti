@@ -18,7 +18,6 @@ var objStudent3 = {
 }
 
 
-
 // faccio il console log di tutte le chiavi e relativi valori
 function singleObjPrint(obj) {
     for (var key in obj) {
@@ -27,7 +26,6 @@ function singleObjPrint(obj) {
     return
 }
 singleObjPrint(objStudent)
-
 
 
 
@@ -64,6 +62,7 @@ function arrayWithObjectsPrint(myArray) {
 }
 
 arrayWithObjectsPrint(classe)
+
 
 //eseguo una volta un prompt che memorizza i valori inseriti in un nuovo oggetto "studente" e lo inserisce nell'Array "classe"
 var propietaDaInserire = ["Inserisci il nome", "Inserisci il cognome", "Inserisci l'età"]
