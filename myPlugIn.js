@@ -81,12 +81,12 @@ function newObjectInArrayPrompt(arrayToPush, timesToRepeat) {
             var newObject = {}
             arrayToPush.push(newObject)
             for (var j = 0; j < objKeys.length; j++) {
-                var recivedValue = prompt("INSERISCI " + objKeys[j])
+                var receivedValue = prompt("INSERISCI " + objKeys[j])
 
-                var valueInNumber = parseInt(recivedValue)
+                var valueInNumber = parseInt(receivedValue)
 
                 if(Number.isNaN(valueInNumber)){
-                    arrayToPush[z + lastItemIndexPlusOne][objKeys[j]] = recivedValue
+                    arrayToPush[z + lastItemIndexPlusOne][objKeys[j]] = receivedValue
                 }else{
                     arrayToPush[z + lastItemIndexPlusOne][objKeys[j]] = valueInNumber
                 }
