@@ -1,3 +1,4 @@
+//creo tre oggetti "studente"
 var objStudent = {
     nome: "Roberto",
     cognome: "Barbagallo",
@@ -16,18 +17,22 @@ var objStudent3 = {
     eta: 66
 }
 
-var classe = []
 
 
+// faccio il console log di tutte le chiavi e relativi valori
 function singleObjPrint(obj) {
     for (var key in obj) {
         console.log("chiave: " + key + " - " + " valore: " + obj[key])
     }
-
     return
 }
-
 singleObjPrint(objStudent)
+
+
+
+
+//creo un Array di oggetti "studente" iniziale
+var classe = []
 
 function inArrayPush(ele1, ele2, ele3, arrayToPush) {
 
@@ -40,6 +45,8 @@ function inArrayPush(ele1, ele2, ele3, arrayToPush) {
 classe = inArrayPush(objStudent, objStudent2, objStudent3, classe)
 
 
+
+//stampo in console il contenuto dell'array
 function arrayWithObjectsPrint(myArray) {
 
     for (var index = 0; index < myArray.length; index++) {
@@ -58,9 +65,8 @@ function arrayWithObjectsPrint(myArray) {
 
 arrayWithObjectsPrint(classe)
 
+//eseguo una volta un prompt che memorizza i valori inseriti in un nuovo oggetto "studente" e lo inserisce nell'Array "classe"
 var propietaDaInserire = ["Inserisci il nome", "Inserisci il cognome", "Inserisci l'età"]
-
-
 
 function newObjectInArrayPrompt(arrayToPush, objModel, questionsForPrompt) {
     var question
@@ -78,8 +84,15 @@ function newObjectInArrayPrompt(arrayToPush, objModel, questionsForPrompt) {
 
         var recivedValue = prompt(question)
 
-        newObject[objKeys[j]] = recivedValue
+        var valueInNumber = parseInt(recivedValue)
 
+        if (Number.isNaN(valueInNumber)){
+            newObject[objKeys[j]] = recivedValue
+
+        }else{
+            newObject[objKeys[j]] = valueInNumber
+        }
+       
     }
     return
 }
@@ -87,3 +100,5 @@ function newObjectInArrayPrompt(arrayToPush, objModel, questionsForPrompt) {
 newObjectInArrayPrompt(classe, objStudent, propietaDaInserire)
 
 console.log(classe)
+
+arrayWithObjectsPrint(classe)
