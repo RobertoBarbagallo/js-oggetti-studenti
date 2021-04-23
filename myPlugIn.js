@@ -1,4 +1,4 @@
-//creo tre oggetti "studente"
+//Creo tre oggetti "studente"
 var objStudent = {
     nome: "Roberto",
     cognome: "Barbagallo",
@@ -18,7 +18,7 @@ var objStudent3 = {
 }
 
 
-// faccio il console log di tutte le chiavi e relativi valori
+//Faccio il console log di tutte le chiavi e relativi valori
 function singleObjPrint(obj) {
     for (var key in obj) {
         console.log("chiave: " + key + " - " + " valore: " + obj[key])
@@ -29,7 +29,7 @@ singleObjPrint(objStudent)
 
 
 
-//creo un Array di oggetti "studente" iniziale - NO FUNZIONE -
+//Creo un Array di oggetti "studente" iniziale - NO FUNZIONE -
 var classe = []
 
 function inArrayPush(ele1, ele2, ele3, arrayToPush) {
@@ -44,7 +44,7 @@ classe = inArrayPush(objStudent, objStudent2, objStudent3, classe)
 
 
 
-//stampo in console il contenuto dell'array
+//Stampo in console il contenuto dell'array
 function arrayWithObjectsPrint(myArray) {
 
     for (var index = 0; index < myArray.length; index++) {
@@ -64,10 +64,13 @@ function arrayWithObjectsPrint(myArray) {
 arrayWithObjectsPrint(classe)
 
 
-//eseguo n volte prompt che memorizza i valori inseriti in un nuovo oggetto  e lo inserisce nell'Array "classe"
+//Eseguo n volte prompt che memorizza i valori inseriti in un nuovo oggetto  e lo inserisce nell'Array "classe"
 
 function newObjectInArrayPrompt(arrayToPush, timesToRepeat) {
+
         var objKeys = []
+
+    //Mi recuperò la posizione dell'ultimo elemento già presente nella lista e ci sommo il valore 1 per quando "z" sarà uguale a 0
         var lastItemIndexPlusOne = arrayToPush.length
 
     //Ricavo le chiavi del primo oggetto e le salvo in un  Array
@@ -89,10 +92,8 @@ function newObjectInArrayPrompt(arrayToPush, timesToRepeat) {
                     arrayToPush[z + lastItemIndexPlusOne][objKeys[j]] = receivedValue
                 }else{
                     arrayToPush[z + lastItemIndexPlusOne][objKeys[j]] = valueInNumber
-                }
-                     
-            }
-        
+                }            
+            }  
         }
  
     return arrayToPush
