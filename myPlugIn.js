@@ -70,9 +70,6 @@ function newObjectInArrayPrompt(arrayToPush, timesToRepeat) {
 
         var objKeys = []
 
-    //Mi recuperò la posizione dell'ultimo elemento già presente nella lista e ci sommo il valore 1 per quando "z" sarà uguale a 0
-        var lastItemIndexPlusOne = arrayToPush.length
-
     //Ricavo le chiavi del primo oggetto e le salvo in un  Array
         var oggetto = arrayToPush[0]
         for (var key in oggetto) {
@@ -82,18 +79,19 @@ function newObjectInArrayPrompt(arrayToPush, timesToRepeat) {
     //Eseguo il ciclo n numero di volte e salvo i dati nell'Array di partenza
         for (var z = 0; z < timesToRepeat; z++) {
             var newObject = {}
-            arrayToPush.push(newObject)
+    
             for (var j = 0; j < objKeys.length; j++) {
                 var receivedValue = prompt("INSERISCI " + objKeys[j])
 
                 var valueInNumber = parseInt(receivedValue)
 
                 if(Number.isNaN(valueInNumber)){
-                    arrayToPush[z + lastItemIndexPlusOne][objKeys[j]] = receivedValue
+                    newObject[objKeys[j]] = receivedValue
                 }else{
-                    arrayToPush[z + lastItemIndexPlusOne][objKeys[j]] = valueInNumber
+                    newObject[objKeys[j]] = valueInNumber
                 }            
             }  
+            arrayToPush.push(newObject)
         }
  
     return arrayToPush
