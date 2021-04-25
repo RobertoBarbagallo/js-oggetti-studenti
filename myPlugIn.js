@@ -23,24 +23,15 @@ function singleObjPrint(obj) {
     for (var key in obj) {
         console.log("chiave: " + key + " - " + " valore: " + obj[key])
     }
-    return
+
 }
 singleObjPrint(objStudent)
 
 
 
 //Creo un Array di oggetti "studente" iniziale - NO FUNZIONE -
-var classe = []
 
-function inArrayPush(ele1, ele2, ele3, arrayToPush) {
-
-    arrayToPush.push(ele1, ele2, ele3)
-
-    return arrayToPush
-
-}
-
-classe = inArrayPush(objStudent, objStudent2, objStudent3, classe)
+var classe =[objStudent, objStudent2, objStudent3]
 
 
 
@@ -53,12 +44,9 @@ function arrayWithObjectsPrint(myArray) {
         if (element.constructor.name === "Object") {
             console.log("Il nome: " + element.nome + " - " + " Il cognome: " + element.cognome)
         } else {
-            console.log("C'è un altro tipo di valore diverso da Oggetto nell'array")
+            console.log("C'è un altro tipo di valore diverso da oggetto nell'array")
         }
-
     }
-
-    return
 }
 
 arrayWithObjectsPrint(classe)
@@ -98,7 +86,7 @@ function newObjectInArrayPrompt(arrayToPush, timesToRepeat) {
 }
 
 
-newObjectInArrayPrompt(classe, 2)
+newObjectInArrayPrompt(classe, 5)
 console.log(classe)
 
 
